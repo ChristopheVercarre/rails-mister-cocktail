@@ -1,0 +1,30 @@
+<%= content_for(:title_tag) do %>
+New cocktail
+<% end %>
+
+<%= content_for(:navbar_title) do %>
+Add a new cocktail
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+
+      <h4>Add a dose</h4>
+
+      <%= f.simple_fields_for :doses do |dose|%>
+        <%= render 'dose_fields', f: dose %>
+        <div class='links'>
+        <%= link_to_add_association 'add dose', f, :doses %>
+      </div>
+      <% end %>
+      <div>
+       <%= f.submit 'Create a new cocktail', class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

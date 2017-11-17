@@ -1,0 +1,14 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to image_tag("Cocktail.png"), cocktails_path, class:'navbar-wagon-brand navbar-wagon-item'%>
+
+  <h3 class="navbar title"><%= yield(:navbar_title) %></h3>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right">
+   <button type="submit" class="btn btn-default navbar-wagon-item"><%= link_to 'Back', cocktails_path, class: "navbar-wagon-link" %></button>
+   <button type="submit" class="btn btn-default navbar-wagon-item"><%= link_to 'Add a new cocktail', new_cocktail_path, class: "navbar-wagon-link" %></button>
+
+  </div>
+</div>
+
+
