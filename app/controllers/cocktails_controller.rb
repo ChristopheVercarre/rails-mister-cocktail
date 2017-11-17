@@ -1,4 +1,9 @@
 class CocktailsController < ApplicationController
+
+  def landing
+    @cocktails = Cocktail.all
+  end
+
   def index
     @cocktails = Cocktail.all
   end

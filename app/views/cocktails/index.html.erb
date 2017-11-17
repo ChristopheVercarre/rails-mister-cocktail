@@ -1,8 +1,41 @@
-<h1>Cocktails</h1>
-
-<ul style="list-style: none">
-<% @cocktails.each do |cocktail| %>
-<li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+<%= content_for(:title_tag) do %>
+New cocktail
 <% end %>
-</ul>
+
+<%= content_for(:navbar_title) do %>
+<div class="wagon-item">Cocktails</div>
+<% end %>
+
+<div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-4">
+        <div class="card">
+          <div class="card-body"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= cl_image_path cocktail.photo.path, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-category"><%= link_to cocktail.name, cocktail_path(cocktail) %>
+              </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <ul>
+              <% cocktail.ingredients.each do |ingredient| %>
+                <li class='btn'><%= ingredient.name %></li>
+              <% end %>
+              </ul>
+            </div>
+            <div class="card-links">
+              <ol>
+                <li class= "list-inline"><a href=#"><i class="fa fa-star"></i></a></li>
+                <li class= "list-inline"><a href=#"><i class="fa fa-heart"></i></a></li>
+                <li class= "list-inline"><a href=#"><i class="fa fa-share"></i></a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+   </div>
+</div>
 
